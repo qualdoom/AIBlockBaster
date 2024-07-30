@@ -176,8 +176,8 @@ for epoch in range(10000):
             break
         optimizer.zero_grad()
         # print(net(g), mx * 0.99 + dif)
-        loss = criterion(net(g), mx)
-        #print(loss)
+        loss = criterion(net(g), mx.detach())
+        # print(loss)
         loss.backward()
         optimizer.step()
         g.setFigure(figureID, i1, j1)
